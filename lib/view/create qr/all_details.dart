@@ -70,12 +70,20 @@ class _AllDetailsState extends State<AllDetails> {
             return ElevatedButton(
               onPressed: () {
                 Get.to(() => ShowQR(
-                      firstName: controller.firstNameController.text.toString(),
-                      lastName: controller.lastNameController.text.toString(),
-                      email: controller.emailController.text.toString(),
-                      phoneNumber: controller.mobileController.text.toString(),
-                      instagram: controller.instagramController.text.toString(),
-                      facebook: controller.facebookController.text.toString(),
+                     userDetails: {
+                      if(controller.firstNameController.text.isNotEmpty)
+                      'First Name': controller.firstNameController.text,
+                       if(controller.lastNameController.text.isNotEmpty)
+                      'Last Name': controller.lastNameController.text,
+                       if(controller.mobileController.text.isNotEmpty)
+                      'Phone Number': controller.mobileController.text,
+                       if(controller.emailController.text.isNotEmpty)
+                      'Email Address': controller.emailController.text,
+                       if(controller.instagramController.text.isNotEmpty)
+                      'Instagram ID': controller.instagramController.text,
+                       if(controller.facebookController.text.isNotEmpty)
+                      'Facebook ID': controller.facebookController.text,
+                    },
                     ));
               },
               child: Text("Submit"),

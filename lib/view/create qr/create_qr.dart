@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:qrbeam/config/common.dart';
 import 'package:qrbeam/config/strings.dart';
 import 'package:qrbeam/view/create%20qr/all_details.dart';
+import 'package:qrbeam/view/create%20qr/email_screen.dart';
 
 class CreateQR extends StatelessWidget {
   const CreateQR({super.key});
@@ -56,31 +57,36 @@ class CreateQR extends StatelessWidget {
               ),
 
               // 2
-              Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                surfaceTintColor:
-                    Color.fromARGB(255, 186, 151, 246).withOpacity(0.1),
-                color: Color.fromARGB(255, 186, 151, 246).withOpacity(0.1),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/images/email.png',
-                        height: 60,
-                      ),
-                      width(15),
-                      Text(
-                        "E-mail Address QR",
-                        style: TextStyle(
-                          fontSize: 20,
+              GestureDetector(
+                onTap: () {
+                  Get.to(()=>EmailScreen());
+                },
+                child: Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  surfaceTintColor:
+                      Color.fromARGB(255, 186, 151, 246).withOpacity(0.1),
+                  color: Color.fromARGB(255, 186, 151, 246).withOpacity(0.1),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/email.png',
+                          height: 60,
                         ),
-                      )
-                    ],
+                        width(15),
+                        Text(
+                          "E-mail Address QR",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

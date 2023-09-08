@@ -42,6 +42,8 @@ dependencies:
   path_provider: ^2.1.1
   permission_handler: ^10.4.3
   share_plus: ^7.1.0
+  barcode_scanner: ^3.6.1
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
