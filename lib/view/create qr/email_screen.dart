@@ -20,6 +20,7 @@ class EmailScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
         child: SingleChildScrollView(
           child: GetBuilder<DetailsController>(
+            // autoRemove: false,
             init: DetailsController(),
             initState: (_) {},
             builder: (controller) {
@@ -27,7 +28,7 @@ class EmailScreen extends StatelessWidget {
                 children: [
                  
                   textField(
-                      text: controller.emailController.text.isNotEmpty? "${controller.emailController.text}":"Enter E-mail Address",
+                      text: "Enter Email Address" ,
                       controller: controller.emailController),
                  
                 ],
@@ -44,13 +45,16 @@ class EmailScreen extends StatelessWidget {
           builder: (controller) {
             return ElevatedButton(
               onPressed: () {
-                // pending
-                // Get.to(() => 
-                // ShowQR(
+              
+                Get.to(() => 
+                ShowQR(
                       
-                //       email: controller.emailController.text.toString(),
+                      userDetails: {
+                         if(controller.emailController.text.isNotEmpty)
+                      'Email Address': controller.emailController.value.text,
+                      },
                      
-                //     ));
+                    ));
               },
               child: Text("Submit"),
               style: ButtonStyle(

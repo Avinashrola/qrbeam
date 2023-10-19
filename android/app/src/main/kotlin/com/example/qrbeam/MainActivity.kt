@@ -1,4 +1,4 @@
-package com.example.qrbeam
+package com.avinash.qrbeam
 
 import io.flutter.embedding.android.FlutterActivity
 

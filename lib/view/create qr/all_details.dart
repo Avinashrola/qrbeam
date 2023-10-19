@@ -14,6 +14,18 @@ class AllDetails extends StatefulWidget {
 }
 
 class _AllDetailsState extends State<AllDetails> {
+
+
+@override
+  void initState() {
+   box?.put('name', 'avinash');
+
+var name = box?.get('name');
+
+print('Name: $name');
+    super.initState();
+  }
+
   var detailsController = Get.put(DetailsController());
 
   @override
@@ -64,6 +76,7 @@ class _AllDetailsState extends State<AllDetails> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         child: GetBuilder<DetailsController>(
+              autoRemove: false,
           init: DetailsController(),
           initState: (_) {},
           builder: (controller) {
@@ -72,19 +85,22 @@ class _AllDetailsState extends State<AllDetails> {
                 Get.to(() => ShowQR(
                      userDetails: {
                       if(controller.firstNameController.text.isNotEmpty)
-                      'First Name': controller.firstNameController.text,
+                      'First Name': box!.get("firstName")??controller.firstNameController.text,
                        if(controller.lastNameController.text.isNotEmpty)
-                      'Last Name': controller.lastNameController.text,
+                      'Last Name': box!.get("lastName")??controller.lastNameController.text,
                        if(controller.mobileController.text.isNotEmpty)
-                      'Phone Number': controller.mobileController.text,
+                      'Phone Number': box!.get("mobile")??controller.mobileController.text,
                        if(controller.emailController.text.isNotEmpty)
-                      'Email Address': controller.emailController.text,
+                      'Email Address': box!.get("email")??controller.emailController.text,
                        if(controller.instagramController.text.isNotEmpty)
-                      'Instagram ID': controller.instagramController.text,
+                      'Instagram ID': box!.get("instagram")??controller.instagramController.text,
                        if(controller.facebookController.text.isNotEmpty)
-                      'Facebook ID': controller.facebookController.text,
+                      'Facebook ID': box!.get("facebook")??controller.facebookController.text,
                     },
                     ));
+                    controller.storeData();
+                    
+                    
               },
               child: Text("Submit"),
               style: ButtonStyle(

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:qrbeam/config/strings.dart';
 
 height(double height) => SizedBox(height: height);
 width(double width) => SizedBox(width: width);
 
 Color white = Colors.white;
+
+Box? box;
 
 ThemeData appTheme() {
   return ThemeData(

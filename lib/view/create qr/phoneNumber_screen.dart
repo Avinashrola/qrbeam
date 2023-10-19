@@ -45,14 +45,19 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         child: GetBuilder<DetailsController>(
+              autoRemove: false,
           init: DetailsController(),
           initState: (_) {},
           builder: (controller) {
             return ElevatedButton(
               onPressed: () {
-                Get.to(() => ShowEmailQR(
+                Get.to(() => ShowQR(
                       
-                      email: controller.mobileController.text.toString(),
+                  userDetails: {
+                     if(controller.mobileController.text.isNotEmpty)
+                    'Phone Number': box!.get("mobile")??controller.mobileController.text,
+                      
+                  },
                      
                     ));
               },

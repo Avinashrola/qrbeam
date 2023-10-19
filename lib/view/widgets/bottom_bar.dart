@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../create qr/create_qr.dart';
-import '../scan_qr.dart';
+import '../scan qr/scan_qr.dart';
+
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -17,7 +18,7 @@ int selected = 0;
 
 final List<Widget> _pages = <Widget>[
     const CreateQR(),
-    const ScanQR(),
+     QRViewExample(),
     
   ];
 

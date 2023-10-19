@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:qrbeam/config/common.dart';
 
 import 'config/strings.dart';
 import 'view/splash_screen.dart';
 
-void main() {
+void main() async{
+  
+
+await Hive.initFlutter();
+box = await Hive.openBox('Box');
   runApp(const MyApp());
 }
 
